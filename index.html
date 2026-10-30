@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#21160f" />
+  <meta name="description" content="Central oficial da Copa dos Colaboradores 2026 — Grupo Zanol & Thomaz." />
+  <title>Copa dos Colaboradores 2026 | Grupo Zanol & Thomaz</title>
+  <link rel="preload" as="image" href="assets/img/estadio-background.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section class="auth-gate" id="authGate" aria-labelledby="authTitle">
+    <div class="auth-backdrop"></div>
+    <div class="auth-card">
+      <img class="auth-company-logo" src="assets/img/logo-empresa-branco.png" alt="Grupo Zanol & Thomaz" />
+      <div class="auth-divider"></div>
+      <div class="eyebrow auth-eyebrow">ACESSO OFICIAL · TEMPORADA 2026</div>
+      <h1 id="authTitle">Copa dos <span>Colaboradores</span></h1>
+      <p class="auth-description">Entre para organizar a competição ou acompanhar os jogos ao vivo.</p>
+      <div class="auth-role-picker" role="group" aria-label="Tipo de acesso">
+        <button type="button" class="auth-role-option active" data-role-choice="admin" aria-pressed="true"><span>⚙</span><strong>ADM</strong><small>Organização</small></button>
+        <button type="button" class="auth-role-option" data-role-choice="torcedor" aria-pressed="false"><span>⚽</span><strong>TORCEDOR</strong><small>Acompanhar</small></button>
+      </div>
+      <form id="authForm" class="auth-form">
+        <label for="accessPin">SENHA DE ACESSO</label>
+        <input id="accessPin" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Digite sua senha" maxlength="20" required />
+        <button id="authSubmitBtn" class="btn btn-brass auth-submit" type="submit">Entrar na Copa <span>→</span></button>
+        <div id="authMessage" class="auth-message" aria-live="polite">Acesso restrito · Grupo Zanol & Thomaz</div>
+      </form>
+      <div class="auth-footer">UMA SÓ EQUIPE. UM SÓ ESPÍRITO.</div>
+    </div>
+  </section>
+
+  <div class="app-shell" id="appShell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand-lockup" href="#inicio" data-go="dashboard" aria-label="Ir para a visão geral">
+        <img src="assets/img/logo-empresa-branco.png" alt="Grupo Zanol & Thomaz" class="company-logo-side" />
+        <span class="brand-rule"></span>
+        <span class="brand-submark"><span class="brand-mini-trophy">✦</span><span><b>COPA DOS</b><strong>COLABORADORES <em>2026</em></strong></span></span>
+      </a>
+      <div class="side-caption">CENTRAL DO CAMPEONATO</div>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-symbol">◫</span><span>Visão geral</span></button>
+        <button class="nav-item admin-nav" data-view="participants"><span class="nav-symbol">♟</span><span>Inscritos</span><span class="nav-count" id="navParticipantCount">0</span></button>
+        <button class="nav-item" data-view="teams"><span class="nav-symbol">⚑</span><span>Times</span></button>
+        <button class="nav-item admin-nav" data-view="draw"><span class="nav-symbol">✦</span><span>Sorteio oficial</span></button>
+        <button class="nav-item" data-view="confrontos"><span class="nav-symbol">⚽</span><span>Confrontos</span></button>
+        <button class="nav-item" data-view="competition"><span class="nav-symbol">🏆</span><span>Campeonato</span><span class="nav-live-dot"></span></button>
+        <button class="nav-item admin-nav" data-view="settings"><span class="nav-symbol">⚙</span><span>Organização</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-season-mark">26</div>
+        <div><strong>Uma só equipe.</strong><small>Um só espírito.</small></div>
+        <span class="side-bottom-star">✦</span>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="mobileMenu" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb"><span>GRUPO ZANOL & THOMAZ</span><b>/</b><strong id="breadcrumbCurrent">VISÃO GERAL</strong></div>
+        <div class="topbar-right">
+          <div class="topbar-event-mark"><img src="assets/img/logo-empresa-branco.png" alt="" /></div>
+          <div class="topbar-event-copy"><strong id="topbarEventName">COPA DOS COLABORADORES 2026</strong><small id="topbarCompanyName">GRUPO ZANOL & THOMAZ</small></div>
+          <span class="status-pill"><i></i><span id="eventStatus">PRÉ-TEMPORADA</span></span>
+          <span class="access-role-pill" id="accessRolePill">ADM</span><button class="icon-button logout-button" id="logoutBtn" title="Sair" aria-label="Sair">⇥</button><button class="btn btn-presentation" id="presentationModeBtn" title="Ativar modo telão">▣ <span>Modo telão</span></button>
+          <button class="icon-button export-icon admin-only" id="exportTopBtn" title="Exportar backup" aria-label="Exportar backup">⇩</button>
+        </div>
+      </header>
+
+      <!-- VISÃO GERAL -->
+      <section class="view active" id="view-dashboard">
+        <section class="hero-banner">
+          <div class="hero-shade"></div><div class="hero-light hero-light-one"></div><div class="hero-light hero-light-two"></div>
+          <div class="hero-content">
+            <div class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> TEMPORADA 2026 · GRUPO ZANOL & THOMAZ</div>
+            <h1 id="heroEventName">COPA DOS<br /><span>COLABORADORES</span> <b>2026</b></h1>
+            <p id="heroCompanyLine">Talento em campo. União em cada jogada. Uma história para construir juntos.</p>
+            <div class="hero-actions">
+              <button class="btn btn-brass" data-go="participants" data-admin-only>＋ Preparar participantes</button>
+              <button class="btn btn-glass" data-go="competition">Acompanhar campeonato <span>↗</span></button>
+            </div>
+          </div>
+          <div class="hero-brand-stamp"><img src="assets/img/logo-empresa-branco.png" alt="Grupo Zanol & Thomaz" /><span>ORGULHO DE JOGAR EM EQUIPE</span></div>
+          <div class="hero-bottom-line"><span>ESPÍRITO DE EQUIPE</span><i></i><span>RESPEITO</span><i></i><span>FAIR PLAY</span><i></i><span>PAIXÃO PELO JOGO</span></div>
+          <div class="hero-corner-number">26</div>
+        </section>
+
+        <div class="section-heading overview-heading"><div><div class="eyebrow muted-eyebrow">O CAMPEONATO EM TEMPO REAL</div><h2>Central da competição</h2></div><div class="season-tag"><span class="season-star">✦</span> TEMPORADA 2026</div></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>COLABORADORES</span><span class="stat-icon">♟</span></div><div class="stat-value" id="statParticipants">0</div><div class="stat-note" id="statParticipantsNote">Inscritos na competição</div><div class="stat-progress"><span id="participantProgress"></span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>TIMES CRIADOS</span><span class="stat-icon">⚑</span></div><div class="stat-value" id="statTeams">0</div><div class="stat-note" id="statTeamsNote">Aguardando sorteio</div><div class="stat-progress brass-progress"><span id="teamProgress"></span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>JOGOS FINALIZADOS</span><span class="stat-icon">⚽</span></div><div class="stat-value" id="statPlayed">0<span class="stat-total" id="statTotal"> / 0</span></div><div class="stat-note" id="statPhaseNote">A bola ainda não rolou</div><div class="stat-progress green-progress"><span id="matchProgress"></span></div></article>
+          <article class="stat-card champion-stat"><div class="stat-top"><span>TAÇA DA COPA</span><span class="stat-icon">🏆</span></div><div class="stat-value champion-value" id="statChampion">EM ABERTO</div><div class="stat-note" id="championNote">A próxima história será escrita em campo</div><div class="champion-ornament">✦</div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="panel panel-fixtures">
+            <div class="panel-heading"><div><div class="eyebrow muted-eyebrow">A PRÓXIMA JOGADA</div><h3>Agenda de partidas</h3><p id="nextMatchesSubtitle">Os próximos confrontos aparecem aqui após o sorteio.</p></div><button class="text-link" data-go="competition">Ver campeonato ↗</button></div>
+            <div id="nextMatches" class="next-matches"><div class="empty-state compact-empty"><span class="empty-ball">⚽</span><strong>O estádio está pronto</strong><p>Cadastre os participantes e forme os times para organizar a competição.</p><button class="btn btn-small btn-outline" data-go="participants">Começar agora</button></div></div>
+          </section>
+          <section class="panel panel-journey">
+            <div class="panel-heading"><div><div class="eyebrow muted-eyebrow">DO VESTIÁRIO À TAÇA</div><h3>Etapas da Copa</h3></div><span class="journey-stars">✦ ✦ ✦</span></div>
+            <div class="journey-list">
+              <button class="journey-step" data-go="participants"><span class="journey-number">01</span><span class="journey-icon">♟</span><span class="journey-copy"><strong>Inscrições e jogadores</strong><small>Fotos, nomes e avaliação técnica</small></span><span class="journey-state" id="stepPlayersState">PENDENTE</span><b>›</b></button>
+              <button class="journey-step" data-go="teams"><span class="journey-number">02</span><span class="journey-icon">⚑</span><span class="journey-copy"><strong>Criação dos times</strong><small>Nomes e escudos de cada equipe</small></span><span class="journey-state" id="stepProfilesState">PENDENTE</span><b>›</b></button>
+              <button class="journey-step" data-go="draw"><span class="journey-number">03</span><span class="journey-icon">✦</span><span class="journey-copy"><strong>Sorteio dos jogadores</strong><small>Revelação individual no telão</small></span><span class="journey-state" id="stepTeamsState">PENDENTE</span><b>›</b></button>
+              <button class="journey-step" data-go="confrontos"><span class="journey-number">04</span><span class="journey-icon">⚽</span><span class="journey-copy"><strong>Confrontos e partidas</strong><small>Elencos e próximos jogos</small></span><span class="journey-state" id="stepGroupsState">PENDENTE</span><b>›</b></button>
+              <button class="journey-step" data-go="competition"><span class="journey-number">05</span><span class="journey-icon">🏆</span><span class="journey-copy"><strong>Classificação e título</strong><small>Grupos, eliminatórias e campeão</small></span><span class="journey-state" id="stepFinalState">PENDENTE</span><b>›</b></button>
+            </div>
+            <div class="journey-footer"><span class="live-indicator"></span><span id="journeyFooterText">Preparação do campeonato em andamento</span></div>
+          </section>
+        </div>
+        <section class="panel dashboard-standings-panel" id="dashboardStandingsPanel">
+          <div class="panel-heading"><div><div class="eyebrow muted-eyebrow">DISPUTA PELA CLASSIFICAÇÃO</div><h3>Classificação provisória</h3><p>A tabela será atualizada automaticamente a cada placar registrado.</p></div><button class="text-link" data-go="competition">Abrir tabelas ↗</button></div>
+          <div id="dashboardStandings" class="dashboard-standings"><div class="standings-empty">A classificação aparecerá depois que os times e os grupos forem definidos.</div></div>
+        </section>
+        <footer class="page-footer"><span>GRUPO ZANOL & THOMAZ · DESDE O PRIMEIRO APITO</span><span id="footerEventName">COPA DOS COLABORADORES 2026</span></footer>
+      </section>
+
+      <!-- PARTICIPANTES -->
+      <section class="view" id="view-participants">
+        <div class="page-title-row"><div><div class="eyebrow muted-eyebrow">PRIMEIRO APITO</div><h1>Participantes</h1><p>Cadastre os colaboradores e avalie o nível técnico para formar times equilibrados.</p></div><div class="title-emblem large-title-emblem">♟</div></div>
+        <div class="two-column-layout participants-layout">
+          <section class="panel form-panel">
+            <div class="panel-heading"><div><h3>Lista de inscritos</h3><p>Um nome por linha. Também aceitamos CSV ou TXT.</p></div><span class="counter-badge" id="draftCounter">0 nomes</span></div>
+            <label class="field-label" for="participantInput">NOMES DOS PARTICIPANTES</label>
+            <textarea id="participantInput" class="participants-textarea" spellcheck="false" placeholder="Exemplo:\nAna Souza\nBruno Lima\nCarlos Santos\nDaniela Costa"></textarea>
+            <div class="input-hints"><span>↳ Separadores aceitos: linha, vírgula ou ponto e vírgula</span><span id="duplicateHint"></span></div>
+            <div class="form-actions wrap-actions"><button class="btn btn-brass" id="saveParticipantsBtn">Salvar lista</button><label class="btn btn-outline file-button" for="participantFile">⇧ Importar CSV/TXT</label><input type="file" id="participantFile" accept=".csv,.txt,text/csv,text/plain" hidden /><button class="btn btn-quiet" id="downloadTemplateBtn">↓ Baixar modelo</button></div>
+            <div class="notice-box"><span>ⓘ</span><p>Os nomes repetidos serão ignorados. Depois de salvar a lista, avalie todos os participantes para liberar o sorteio equilibrado.</p></div>
+          </section>
+          <section class="panel participant-summary-panel">
+            <div class="panel-heading"><div><h3>Resumo das inscrições</h3><p>Conferência antes da convocação.</p></div></div>
+            <div class="participant-total-block"><span>TOTAL DE INSCRITOS</span><strong id="participantBigCount">0</strong><small>colaboradores na lista</small></div>
+            <div class="summary-line"><span>Times planejados</span><strong id="plannedTeams">8</strong></div>
+            <div class="summary-line"><span>Jogadores por time</span><strong>Automático</strong></div>
+            <div class="summary-line"><span>Distribuição prevista</span><strong id="plannedDistribution">Aguardando lista</strong></div>
+            <button class="btn btn-full btn-brass" id="goTeamsBtn">Criar meus times <span>→</span></button>
+            <p class="microcopy">O sorteio pode ser refeito antes de registrar os resultados oficiais.</p>
+          </section>
+        </div>
+        <section class="panel registered-panel rating-panel">
+          <div class="panel-heading"><div><div class="eyebrow muted-eyebrow">FAIR PLAY E EQUILÍBRIO</div><h3>Avaliação técnica dos participantes</h3><p>Adicione a foto de cada colaborador e selecione de uma a cinco estrelas para definir o nível técnico.</p></div><span class="counter-badge" id="savedCounter">0 inscritos</span></div>
+          <div class="rating-guide"><span><b>★</b> 1 · Iniciante</span><span><b>★★</b> 2 · Básico</span><span><b>★★★</b> 3 · Intermediário</span><span><b>★★★★</b> 4 · Avançado</span><span><b>★★★★★</b> 5 · Destaque</span></div>
+          <div class="rating-progress-row"><div class="rating-progress-copy"><strong>Progresso das avaliações</strong><span id="playerLevelProgress">0/0 avaliados</span></div><div class="rating-progress-track"><span id="playerLevelBar"></span></div></div>
+          <div class="level-notice" id="levelNotice">Salve a lista de participantes para começar a avaliação.</div>
+          <div id="savedParticipants" class="saved-participants"><div class="empty-inline">Nenhum participante cadastrado ainda.</div></div>
+        </section>
+      </section>
+
+      <!-- CRIAÇÃO DOS TIMES E ELENCOS -->
+      <section class="view" id="view-teams">
+        <div class="page-title-row"><div><div class="eyebrow muted-eyebrow">IDENTIDADE DOS ELENCOS</div><h1>Criação dos times</h1><p>Defina o nome e o escudo de cada equipe antes da cerimônia. O número de jogadores por time será calculado automaticamente.</p></div><div class="title-emblem large-title-emblem">⚑</div></div>
+        <section class="panel team-setup-panel" data-admin-only>
+          <div class="team-setup-heading"><div><div class="eyebrow muted-eyebrow">CONFIGURAÇÃO DA COMPETIÇÃO</div><h3>Quantos times participarão?</h3><p>Você poderá editar os nomes e enviar uma imagem para representar cada equipe.</p></div><div class="team-count-control"><label class="field-label" for="teamCount">NÚMERO DE TIMES</label><div class="stepper"><button type="button" data-step="teamCount" data-delta="-1" aria-label="Diminuir times">−</button><input id="teamCount" type="number" min="2" max="16" value="8" /><button type="button" data-step="teamCount" data-delta="1" aria-label="Aumentar times">＋</button></div><small>De 2 a 16 equipes</small></div></div>
+          <div class="team-balance-note"><span>⚖</span><div><strong>Distribuição inteligente de jogadores</strong><small>O sorteio considera quantidade de participantes e nível técnico. A diferença entre os elencos será de, no máximo, um jogador. Com 2 times, a competição começa diretamente pela Grande Final.</small></div></div>
+          <div id="teamSetupGrid" class="team-setup-grid"></div>
+          <div class="form-actions team-setup-actions"><button class="btn btn-brass" data-go="draw">Ir para cerimônia do sorteio <span>→</span></button></div>
+        </section>
+        <div class="section-heading teams-heading"><div><div class="eyebrow muted-eyebrow">ELENCOS DEFINIDOS</div><h2 id="teamsSectionTitle">Composição dos times</h2></div><span class="counter-badge" id="teamCountBadge">0 times</span></div>
+        <div id="teamsGrid" class="teams-grid"><div class="empty-state full-empty"><span class="empty-ball">⚽</span><strong>Os elencos serão apresentados aqui</strong><p>Crie os times, confira os inscritos e realize o sorteio oficial para conhecer as equipes.</p><button class="btn btn-outline" data-go="participants">Ir para inscrições</button></div></div>
+      </section>
+
+      <!-- CERIMÔNIA DO SORTEIO -->
+      <section class="view" id="view-draw">
+        <div class="draw-page-hero"><div class="draw-page-shade"></div><div class="draw-page-copy"><div class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> CERIMÔNIA OFICIAL</div><h1>O sorteio dos jogadores</h1><p>Um nome por vez. Uma nova história para cada time. Acompanhe a revelação ao vivo no telão.</p></div><div class="draw-hero-mark">✦</div></div>
+        <div id="drawWorkspace" class="draw-workspace"><div class="empty-state full-empty"><span class="empty-ball">✦</span><strong>O sorteio está esperando por você</strong><p>Finalize as inscrições, avalie todos os jogadores e crie os times para iniciar a cerimônia.</p><button class="btn btn-brass" data-go="teams">Preparar times</button></div></div>
+      </section>
+
+      <!-- CONFRONTOS / ESCALAÇÕES -->
+      <section class="view" id="view-confrontos">
+        <div class="page-title-row"><div><div class="eyebrow muted-eyebrow">DIA DE JOGO</div><h1>Central de confrontos</h1><p>Veja o próximo duelo e conheça os elencos que entram em campo.</p></div><div class="title-emblem large-title-emblem">⚽</div></div>
+        <div id="confrontosWorkspace" class="confrontos-workspace"><div class="empty-state full-empty"><span class="empty-ball">⚽</span><strong>Os confrontos serão definidos após o sorteio</strong><p>Assim que os times estiverem completos, os próximos duelos e os jogadores de cada lado aparecerão aqui.</p><button class="btn btn-outline" data-go="draw">Abrir sorteio</button></div></div>
+      </section>
+
+      <!-- CAMPEONATO -->
+      <section class="view" id="view-competition">
+        <div class="competition-hero">
+          <div class="competition-hero-overlay"></div><div class="competition-hero-copy"><div class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> A CAMINHO DA GLÓRIA</div><h1>O campeonato</h1><p>Fase de grupos, classificação por pontos e eliminatórias até a grande final.</p></div><div class="competition-hero-emblem">🏆</div><div class="competition-hero-season">TEMPORADA <b>2026</b></div>
+        </div>
+        <div class="competition-toolbar"><div class="phase-legend"><span><i class="phase-dot phase-groups-dot"></i> Fase de grupos</span><span><i class="phase-dot phase-knockout-dot"></i> Mata-mata</span><span><i class="phase-dot phase-complete-dot"></i> Concluído</span></div><div class="competition-actions"><button class="btn btn-outline btn-small" id="printCompetitionBtn">▤ Imprimir / TV</button><button class="btn btn-brass btn-small" id="refreshCompetitionBtn">↻ Atualizar campeonato</button></div></div>
+        <div id="competitionIntro" class="competition-intro"><div class="competition-intro-icon">ⓘ</div><div><strong>O campeonato começa após o sorteio dos times.</strong><p>Com as equipes definidas, o sistema organiza os grupos e cria todos os jogos da primeira fase. Com apenas dois times, a disputa será uma grande final direta. Cada vitória vale 3 pontos e o empate vale 1 ponto.</p></div><button class="btn btn-outline btn-small" data-go="teams">Preparar times →</button></div>
+        <div id="competitionWorkspace" class="competition-workspace"><div class="empty-state full-empty"><span class="empty-ball">⚽</span><strong>O primeiro apito ainda vai acontecer</strong><p>Monte os elencos na aba Times para gerar a tabela da competição.</p></div></div>
+        <section class="champion-banner" id="championBanner" hidden><div class="champion-rays">✦</div><div class="champion-cup">🏆</div><div><div class="eyebrow">CAMPEÕES DA COPA</div><h2 id="championNameBanner">SELEÇÃO CAMPEÃ</h2><p>Uma equipe. Uma conquista. Uma história para contar.</p></div><div class="champion-year">2026</div></section>
+      </section>
+
+      <!-- ORGANIZAÇÃO -->
+      <section class="view" id="view-settings">
+        <div class="page-title-row"><div><div class="eyebrow muted-eyebrow">BASTIDORES DA COPA</div><h1>Organização</h1><p>Identidade do evento, backups e controles para a equipe organizadora.</p></div><div class="title-emblem large-title-emblem">⚙</div></div>
+        <div class="two-column-layout settings-layout">
+          <section class="panel form-panel"><div class="panel-heading"><div><h3>Identidade do campeonato</h3><p>A marca do Grupo Zanol & Thomaz já está integrada ao visual.</p></div></div>
+            <label class="field-label" for="eventNameInput">NOME DO CAMPEONATO</label><input class="text-input" id="eventNameInput" maxlength="64" value="Copa dos Colaboradores 2026" />
+            <label class="field-label spaced-label" for="companyNameInput">EMPRESA</label><input class="text-input" id="companyNameInput" maxlength="64" value="Grupo Zanol & Thomaz" />
+            <div class="brand-static-preview"><img src="assets/img/logo-empresa-branco.png" alt="Grupo Zanol & Thomaz" /><div><strong>Identidade institucional</strong><small>Paleta corporativa em marrom, bege e dourado fosco.</small></div></div>
+            <div class="form-actions"><button class="btn btn-brass" id="saveIdentityBtn">Salvar identidade</button></div>
+          </section>
+          <section class="panel appearance-panel"><div class="panel-heading"><div><h3>Prévia da identidade</h3><p>Como a marca aparece no menu e no cabeçalho.</p></div></div><div class="brand-preview-stage"><div class="brand-preview-card"><img src="assets/img/logo-empresa-branco.png" alt="" /><div><strong id="previewEventName">COPA DOS COLABORADORES 2026</strong><span id="previewCompanyName">GRUPO ZANOL & THOMAZ</span></div><span class="preview-star">✦</span></div></div><div class="notice-box"><span>ⓘ</span><p>O logo institucional é fixo para manter o padrão visual da empresa. Os dados ficam salvos neste navegador.</p></div></section>
+        </div>
+        <div class="two-column-layout settings-layout second-settings-row">
+          <section class="panel form-panel"><div class="panel-heading"><div><h3>Dados e segurança</h3><p>Leve os dados do campeonato para outra instalação, se necessário.</p></div></div><div class="data-action-row"><div><strong>Exportar backup</strong><p>Guarde participantes, níveis, times, tabelas e placares em um arquivo JSON.</p></div><button class="btn btn-outline btn-small" id="exportBackupBtn">↓ Exportar JSON</button></div><div class="data-action-row"><div><strong>Importar backup</strong><p>Restaurar os dados exportados anteriormente.</p></div><label class="btn btn-outline btn-small file-button" for="backupInput">↑ Importar JSON</label><input type="file" id="backupInput" accept=".json,application/json" hidden /></div></section>
+          <section class="panel danger-panel"><div class="panel-heading"><div><h3>Reiniciar campeonato</h3><p>Use com atenção antes de uma nova edição.</p></div></div><p>Você pode refazer os times e jogos mantendo os inscritos, ou apagar todas as informações deste navegador.</p><div class="form-actions wrap-actions"><button class="btn btn-outline" id="resetTournamentBtn">Refazer sorteio e jogos</button><button class="btn btn-danger" id="clearAllBtn">Limpar tudo</button></div></section>
+        </div>
+        <div class="local-storage-notice admin-only"><span>ⓘ</span><div><strong>Importante sobre o telão</strong><p>Os dados e as fotos ficam sincronizados no Supabase. O ADM organiza a Copa; o Torcedor acompanha em modo de leitura. Exporte backups periodicamente.</p></div></div>
+      </section>
+    </main>
+    <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

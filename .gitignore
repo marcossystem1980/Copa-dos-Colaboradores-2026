@@ -1,0 +1,2 @@
+# SQL de configuração contém os PINs iniciais: manter somente local e no SQL Editor do Supabase.
+SUPABASE_SETUP.sql
