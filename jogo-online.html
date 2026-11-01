@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1d140f" />
+  <meta name="description" content="Escolha seu clube e prepare seu elenco para o Jogo Online da Copa dos Colaboradores." />
+  <title>Jogo Online | Copa dos Colaboradores</title>
+  <link rel="preload" as="image" href="assets/img/estadio-background.jpg" />
+  <link rel="stylesheet" href="jogo-online.css" />
+</head>
+<body>
+  <div class="game-page-shell">
+    <header class="game-topbar">
+      <a class="game-brand" href="index.html" aria-label="Voltar para a Copa dos Colaboradores">
+        <img src="assets/img/logo-empresa-branco.png" alt="Grupo Zanol & Thomaz" />
+        <span></span>
+        <b>COPA <em>2026</em></b>
+      </a>
+      <div class="game-breadcrumb"><span>JOGO ONLINE</span><b>/</b><strong>TIMES DA COPA</strong></div>
+      <div class="game-top-actions">
+        <span class="online-status" id="connectionStatus"><i></i> CONECTANDO AO CATÁLOGO</span>
+        <a class="back-link" href="index.html">← Voltar à Copa</a>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <section class="selection-hero">
+        <div class="selection-hero-overlay"></div>
+        <div class="selection-hero-content">
+          <div class="eyebrow"><span></span> JOGO ONLINE · ELENCOS DA EMPRESA</div>
+          <p class="hero-kicker">AGORA É HORA DE ENTRAR EM CAMPO.</p>
+          <h1>SEU TIME.<br/><strong>SUA EQUIPE.</strong></h1>
+          <p class="hero-description">Escolha um dos times formados na Copa dos Colaboradores, monte sua escalação 7x7 com os próprios participantes e prepare-se para desafiar outro jogador.</p>
+          <div class="hero-metrics">
+            <div><strong id="copaTeamTotal">0</strong><span>TIMES DISPONÍVEIS</span></div>
+            <div><strong id="copaPlayerTotal">0</strong><span>JOGADORES INSCRITOS</span></div>
+            <div><strong>7 × 7</strong><span>FORMAÇÃO · 2–3–1</span></div>
+          </div>
+        </div>
+        <div class="hero-stamp"><span>GZT</span><small>FAIR PLAY<br/>EM TODO JOGO</small></div>
+      </section>
+
+      <section class="match-mode-section" aria-labelledby="matchModeTitle">
+        <div class="match-mode-heading">
+          <div><div class="eyebrow eyebrow-muted">CENTRAL DE PARTIDAS</div><h2 id="matchModeTitle">Como você quer jogar?</h2><p>Entre em campo quando quiser: desafie a inteligência artificial ou prepare uma partida contra outra pessoa.</p></div>
+        <span class="match-mode-kicker">SEU JOGO · SUAS REGRAS</span>
+        </div>
+        <div class="match-mode-grid">
+          <article class="match-mode-card ai-mode-card">
+            <div class="match-mode-art ai-art"><span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span><span class="art-ball">⚽</span><span class="art-vs">VS IA</span></div>
+            <div class="match-mode-card-copy"><span class="mode-status available">DISPONÍVEL · JOGUE SOZINHO</span><h3>Partida contra IA</h3><p>Entre em campo contra um adversário controlado pelo computador. Escolha a dificuldade e jogue mesmo quando nenhum outro colaborador estiver online.</p><a class="match-mode-cta" href="#copaTeamsPanel" id="chooseAiModeBtn">ESCOLHER TIME E JOGAR <span>→</span></a></div>
+          </article>
+          <article class="match-mode-card online-mode-card">
+            <div class="match-mode-art online-art"><span class="online-player player-left">01</span><span class="online-vs">VS</span><span class="online-player player-right">02</span><span class="online-pitch-lines"></span></div>
+            <div class="match-mode-card-copy"><span class="mode-status in-development">PRÓXIMA ETAPA · MULTIPLAYER</span><h3>Contra outro jogador</h3><p>Crie uma sala privada ou encontre um adversário. Estamos preparando o servidor que manterá os dois jogadores sincronizados no mesmo campo.</p><button class="match-mode-cta secondary-cta" type="button" id="onlineModeInfoBtn">CONHECER O MODO ONLINE <span>→</span></button></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="game-mode-switch" aria-label="Modo de seleção">
+        <div class="game-mode-switch-copy"><span class="eyebrow eyebrow-muted">MODO DE JOGO</span><strong>Escolha como deseja montar sua equipe</strong></div>
+        <div class="game-mode-switch-options"><button type="button" class="game-mode-option active" aria-pressed="true"><span>⚑</span> TIMES DA COPA <small>DISPONÍVEL</small></button><button type="button" class="game-mode-option future" disabled><span>🏟</span> CLUBES REAIS <small>EM PREPARAÇÃO</small></button></div>
+      </section>
+
+      <section class="copa-teams-section" id="copaTeamsPanel">
+        <div class="copa-section-heading">
+          <div><div class="eyebrow eyebrow-muted">ELENCOS DA EMPRESA</div><h2>Escolha seu time</h2><p>Os times, participantes, fotos e níveis vêm diretamente do cadastro oficial da Copa, sincronizado no Supabase.</p></div>
+          <button type="button" class="copa-refresh-btn" id="reloadCopaTeamsBtn">↻ ATUALIZAR TIMES</button>
+        </div>
+        <div class="copa-source-status" id="copaTeamsStatus" role="status"><span class="status-dot"></span> Consultando os times da Copa...</div>
+        <div class="copa-team-grid" id="copaTeamGrid" aria-live="polite"><div class="copa-empty-state">Carregando times...</div></div>
+        <section class="copa-team-workspace" id="copaTeamWorkspace">
+          <div class="copa-empty-state large"><div class="copa-empty-ball">⚽</div><strong>Selecione um time para começar</strong><p>Você poderá escalar sete titulares na formação 2–3–1 e escolher até cinco reservas.</p></div>
+        </section>
+        <div class="copa-game-next-step"><span>PRÓXIMA FASE</span><strong>SALAS ONLINE E PARTIDAS EM TEMPO REAL</strong><p>A escalação ficará salva no seu perfil e será usada quando conectarmos o sistema de salas multiplayer.</p></div>
+      </section>
+
+      <div id="clubModePanel" hidden>
+      <section class="selection-heading">
+        <div>
+          <div class="eyebrow eyebrow-muted">MERCADO DE CLUBES</div>
+          <h2>Selecione seu clube</h2>
+          <p>12 equipes selecionadas para o catálogo inicial. Os escudos abaixo são identidades gráficas originais com iniciais, não reproduções oficiais.</p>
+        </div>
+        <div class="season-chip" id="catalogSeason">BRASIL 2026 · EUROPA 2026/27</div>
+      </section>
+
+      <section class="catalog-tools" aria-label="Filtros de clubes">
+        <div class="filter-tabs" role="group" aria-label="Filtrar por região">
+          <button class="filter-tab active" data-filter="all" aria-pressed="true">TODOS <span>12</span></button>
+          <button class="filter-tab" data-filter="brasil" aria-pressed="false">BRASILEIRÃO <span>06</span></button>
+          <button class="filter-tab" data-filter="europa" aria-pressed="false">EUROPA <span>06</span></button>
+        </div>
+        <label class="club-search"><span>⌕</span><input type="search" id="clubSearch" placeholder="Buscar clube, cidade ou liga..." autocomplete="off"/><kbd>⌘ K</kbd></label>
+      </section>
+
+      <div class="catalog-status" id="catalogStatus" role="status"><span class="status-dot"></span> Carregando catálogo de clubes...</div>
+      <section class="club-grid" id="clubGrid" aria-live="polite"></section>
+
+      <section class="club-detail-section" id="clubDetailSection">
+        <div class="detail-section-heading"><div><div class="eyebrow eyebrow-muted">PRÉ-JOGO</div><h2>Central do clube</h2><p>Escolha uma equipe para visualizar seus dados e preparar a escalação.</p></div><span class="detail-current-label" id="detailCurrentLabel">NENHUM CLUBE SELECIONADO</span></div>
+        <div class="club-detail-card" id="clubDetailCard">
+          <div class="detail-empty"><span>⚽</span><strong>Selecione um clube acima</strong><p>Os dados e o elenco aparecerão nesta área.</p></div>
+        </div>
+      </section>
+
+      <section class="squad-section" id="squadSection">
+        <div class="detail-section-heading"><div><div class="eyebrow eyebrow-muted">MONTAGEM DA EQUIPE</div><h2>Elenco e posições</h2><p>Os cards usam avatares genéricos enquanto a fonte de dados e as licenças de imagem são definidas.</p></div><span class="detail-current-label" id="squadSeasonLabel">AGUARDANDO CLUBE</span></div>
+        <div class="squad-workspace" id="squadWorkspace">
+          <div class="squad-empty"><div class="generic-avatar large-avatar"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="12"/><path d="M10 59c1-14 9-22 22-22s21 8 22 22"/></svg></div><strong>Seu elenco será montado aqui</strong><p>Selecione um clube para visualizar as posições. Os nomes e atributos oficiais serão carregados quando conectarmos a fonte licenciada de elencos.</p></div>
+        </div>
+      </section>
+
+      <section class="next-steps-panel">
+        <div class="next-steps-icon">✦</div>
+        <div><div class="eyebrow">PRÓXIMA FASE DO MODO ONLINE</div><h3>Do clube escolhido à escalação titular</h3><p>O catálogo e a seleção de clube serão a base para importar os elencos por temporada, montar titulares e reservas, e então entrar em uma sala multiplayer.</p></div>
+        <div class="next-steps-list"><span>01 · ELENCOS</span><span>02 · FORMAÇÃO</span><span>03 · SALA ONLINE</span></div>
+      </section>
+
+      </div>
+
+      <footer class="game-footer"><span>GRUPO ZANOL & THOMAZ · COPA DOS COLABORADORES</span><span>JOGO ONLINE · TIMES DA COPA</span></footer>
+    </main>
+  </div>
+  <div class="game-toast" id="gameToast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="jogo-online.js"></script>
+</body>
+</html>

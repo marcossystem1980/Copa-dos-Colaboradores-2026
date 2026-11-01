@@ -47,10 +47,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
 .brand-submark em { color: var(--brass-light); font-style: normal; }
 .side-caption { margin: 4px 12px 13px; font-size: 9px; font-weight: 700; color: #8d7a65; letter-spacing: .2em; }
 .main-nav { display: grid; gap: 5px; }
-.nav-item { position: relative; display: flex; align-items: center; width: 100%; min-height: 48px; gap: 12px; padding: 0 12px; text-align: left; color: #c9bcae; border: 1px solid transparent; border-radius: 11px; background: transparent; transition: background .18s ease, color .18s ease, border-color .18s ease; }
+.nav-item { text-decoration: none; cursor: pointer; position: relative; display: flex; align-items: center; width: 100%; min-height: 48px; gap: 12px; padding: 0 12px; text-align: left; color: #c9bcae; border: 1px solid transparent; border-radius: 11px; background: transparent; transition: background .18s ease, color .18s ease, border-color .18s ease; }
 .nav-item:hover { color: #fff; background: rgba(255,255,255,.055); }
 .nav-item.active { color: #fff8eb; background: linear-gradient(105deg, rgba(195,157,100,.24), rgba(195,157,100,.07)); border-color: rgba(196,161,106,.22); box-shadow: inset 3px 0 0 var(--brass); }
 .nav-symbol { display: grid; width: 26px; height: 26px; place-items: center; color: var(--brass-light); font-size: 18px; }
+.nav-game-tag { font-size: 8px; letter-spacing: 1px; color: #e6c797; border: 1px solid rgba(196,161,106,.34); border-radius: 4px; padding: 3px 5px; }
+.nav-game-link:hover .nav-game-tag { background: rgba(195,157,100,.14); }
 .nav-item > span:nth-child(2) { flex: 1; font-size: 12px; font-weight: 600; }
 .nav-count { min-width: 23px; padding: 2px 6px; text-align: center; border-radius: 20px; font-size: 10px; color: #eddbbb; background: rgba(196,161,106,.18); }
 .nav-live-dot { width: 6px; height: 6px; margin-left: auto; background: #94b69a; border-radius: 50%; box-shadow: 0 0 0 4px rgba(148,182,154,.1); }

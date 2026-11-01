@@ -1,2 +1,20 @@
 # SQL de configuração contém os PINs iniciais: manter somente local e no SQL Editor do Supabase.
 SUPABASE_SETUP.sql
+
+# Migração SQL do catálogo online: executar no SQL Editor; não publicar no GitHub.
+SUPABASE_JOGO_ONLINE_CATALOGO.sql
+
+# Migração de elencos - executar no SQL Editor, não publicar como parte do site.
+SUPABASE_JOGO_ONLINE_ELENCOS.sql
+
+# Segredos locais de Edge Functions nunca devem ir ao GitHub.
+supabase/functions/.env
+.env
+.env.*
+!.env.example
+
+# Migração de escalações dos times da Copa: executar no SQL Editor, não publicar.
+SUPABASE_JOGO_ONLINE_TIMES_COPA.sql
+
+# Histórico de partidas locais contra IA: executar somente no SQL Editor.
+SUPABASE_JOGO_ONLINE_PARTIDAS.sql
